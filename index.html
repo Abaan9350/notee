@@ -11,6 +11,9 @@
             background-color: #1E1E1E;
             color: white;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .header {
             display: flex;
@@ -19,6 +22,7 @@
             padding: 10px;
             background-color: #007BFF;
             animation: slide-down 1s; /* Slide-down animation for the header */
+            width: 100%; /* Make the header span the entire width */
         }
         .logo {
             font-size: 32px; /* Increased font size */
@@ -32,21 +36,14 @@
             margin-right: 20px;
             cursor: pointer;
             color: white; /* White font color */
-            padding: 5px 10px; /* Add padding to tabs */
-            border-radius: 5px; /* Add rounded corners to tabs */
+            padding: 10px 20px; /* Increase padding for larger tabs */
+            border-radius: 10px; /* Increase rounded corners */
             transition: background-color 0.3s ease-in-out; /* Smooth color transition */
             animation: pop-up 1s; /* Pop-up animation for tabs */
         }
         .tab:hover {
             background-color: #0056b3; /* Darker blue on hover */
             transform: scale(1.1); /* Slight scale-up effect on hover */
-        }
-        .content {
-            display: flex; /* Center content horizontally and vertically */
-            justify-content: flex-start;
-            align-items: flex-start;
-            height: calc(100vh - 60px); /* Take up remaining viewport height */
-            padding: 20px; /* Add padding to the content */
         }
         /* Dropdown menu styles (same as previous) */
         .dropdown {
@@ -94,34 +91,143 @@
                 opacity: 1;
             }
         }
-    
-        
+        /* Styling for the logo */
+        .logo img {
+            width: 150px; /* Adjust the width for your desired size */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 20px; /* Add margin for spacing */
+        }
+        /* Login and Registration form container styles */
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px; /* Set the width of the form container */
+            display: block; /* Initially show the form container */
+            margin-top: 20px; /* Add top margin to separate from header */
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: white; /* White font color */
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        .form-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        /* Button to switch between Login and Registration forms */
+        .toggle-form-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .toggle-form-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo">NoteShare</div>
+        <!-- Logo with image -->
+        <div class="logo">
+            <img src="path-to-your-logo-image.png" alt="NoteShare Logo">
+        </div>
+
         <div class="tabs">
-            <!-- Use a div for the dropdown menu -->
+            <!-- Notes dropdown -->
             <div class="dropdown" id="notesTab">
                 Notes
                 <div class="dropdown-content">
-                    <!-- Update the link for the First Year tab -->
-                    <a target = "_blank" href="https://siescms-my.sharepoint.com/personal/abdurrahmansiot122_gst_sies_edu_in/_layouts/15/onedrive.aspx?view=1">First Year</a>
-                    <a href="second_year.html">Second Year</a>
-                    <a href="third_year.html">Third Year</a>
-                    <a href="fourth_year.html">Fourth Year</a>
+                    <a href="https://drive.google.com/drive/u/3/folders/1-TkZNI-6JlVBpQUJSrTgnSka3arRdcU4" target="_blank">First Year</a>
+                    <a href="https://drive.google.com/drive/u/3/folders/1-aQXaLIhDDENBp3CXMMa-Fd-9TPKEXxy" target="_blank">Second Year</a>
+                    <a href="third_year.html" target="_blank">Third Year</a>
+                    <a href="fourth_year.html" target="_blank">Fourth Year</a>
                 </div>
             </div>
-            <!-- Add space between tabs -->
+
+            <!-- Add some spacing -->
             <div style="margin-right: 20px;"></div>
-            <div class="tab" id="questionsTab">Previous Year Questions</div>
-            <!-- Add space between tabs -->
+
+            <!-- Previous Year Questions dropdown with more spacing -->
+            <div class="dropdown" id="questionsTab">
+                Previous Year Questions
+                <div class="dropdown-content">
+                    <a href="first_year_questions.html">First Year</a>
+                    <a href="second_year_questions.html">Second Year</a>
+                    <a href="third_year_questions.html">Third Year</a>
+                    <a href="fourth_year_questions.html">Fourth Year</a>
+                </div>
+            </div>
+
+            <!-- Add more space between tabs if needed -->
             <div style="margin-right: 20px;"></div>
-            <div class="tab" id="contactTab">Contact Us</div>
+
+            <!-- Contact Us tab -->
+<div class="tab" id="contactTab" style="text-decoration: none; color: white;">
+    <a href="about_us.html" style="text-decoration: none; color: white;">About Us</a>
+</div>
+
         </div>
     </div>
 
-    
+    <!-- Login Form Container (Centered) -->
+    <div class="form-container" id="loginForm">
+        <h2>Login to NoteShare</h2>
+        <form action="your-login-action.php" method="POST">
+            <input type="text" class="form-input" name="username" placeholder="Username" required>
+            <input type="password" class="form-input" name="password" placeholder="Password" required>
+            <button type="submit" class="form-button">Login</button>
+        </form>
+    </div>
+
+    <!-- Registration Form Container (Initially hidden) -->
+    <div class="form-container" id="registrationForm" style="display: none;">
+        <h2>Register for NoteShare</h2>
+        <form action="your-registration-action.php" method="POST">
+            <input type="text" class="form-input" name="username" placeholder="Username" required>
+            <input type="password" class="form-input" name="password" placeholder="Password" required>
+            <button type="submit" class="form-button">Register</button>
+        </form>
+    </div>
+
+    <!-- Button to switch between Login and Registration forms -->
+    <button class="toggle-form-button" onclick="toggleForm()">Register</button>
+
+    <!-- Your other content goes here -->
+
+    <script>
+        // Function to toggle between Login and Registration forms
+        function toggleForm() {
+            var loginForm = document.getElementById("loginForm");
+            var registrationForm = document.getElementById("registrationForm");
+
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                registrationForm.style.display = "none";
+                document.querySelector(".toggle-form-button").textContent = "Register";
+            } else {
+                loginForm.style.display = "none";
+                registrationForm.style.display = "block";
+                document.querySelector(".toggle-form-button").textContent = "Login";
+            }
+        }
+    </script>
 </body>
 </html>
